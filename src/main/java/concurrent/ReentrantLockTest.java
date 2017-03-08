@@ -9,12 +9,16 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockTest {
     public static void main(String[] args) {
-
+        Thread[] threads = new Thread[10];
+        for(int i = 0; i < threads.length; i ++)
+            threads[i] = new Thread(new PrintQueue(), "Thread-" + i);
+        for(Thread thread : threads)
+            thread.start();
     }
 }
 
-class PrintQueue {
-    private final Lock lock = new ReentrantLock(); // 默认是非公平锁
+class PrintQueue implements Runnable {
+    private final Lock lock = new ReentrantLock(true); // 无参数是非公平锁
     public void print() {
         try {
             lock.lock();
@@ -25,7 +29,12 @@ class PrintQueue {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            lock.unlock(); // 必须在finally中释放 否则如果锁守护的代码在try块之外抛出了异常 它将永远不会被释放
+            // 必须在finally中释放 否则如果锁守护的代码在try块之外抛出了异常 它将永远不会被释放
+            lock.unlock();
         }
+    }
+    @Override
+    public void run() {
+        print();
     }
 }
