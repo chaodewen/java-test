@@ -45,7 +45,7 @@ public class ClassLoaderTest {
 			Class<?> cl2 = classLoader.loadClass("Cc.Print");
 			Method method = cl.getDeclaredMethod("testRegex", String.class);
 			Method method2 = cl2.getDeclaredMethod("print", Object.class);
-			
+
 			while(in.hasNext()) {
 				method2.invoke(null, method.invoke(null, in.next()));
 			}
