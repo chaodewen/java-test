@@ -21,16 +21,16 @@ import java.util.Random;
 public class QuickSort {
     private static void quickSort(int arr[], int left, int right) {
         if (left < right) {
-            int small = left, key = arr[right];
+            int i = left, key = arr[right];
 
-            for (int large = left; large < right; large ++)
-                if (arr[large] <= key) // 感觉取等号的话是稳定排序
-                    swap(arr, small ++, large);
+            for (int j = left; j < right; j ++)
+                if (arr[j] <= key) // 感觉取等号的话是稳定排序
+                    swap(arr, i ++, j); // i指向当前最左边一个比key大的数,j指向当前比key大数的下一个比key小的数
 
-            swap(arr, small, right);
+            swap(arr, i, right);
 
-            quickSort(arr, left, small - 1);
-            quickSort(arr, small + 1, right);
+            quickSort(arr, left, i - 1);
+            quickSort(arr, i + 1, right);
         }
     }
 
