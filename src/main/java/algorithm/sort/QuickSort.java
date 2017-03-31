@@ -19,7 +19,7 @@ import java.util.Random;
  * 快速排序是一个不稳定的排序方法
  */
 public class QuickSort {
-    private static void quickSort(int arr[], int left, int right) {
+    public static void quickSort(int arr[], int left, int right) {
         if (left < right) {
             int i = left, key = arr[right];
 
@@ -38,44 +38,5 @@ public class QuickSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        // 检查排序函数正确性
-        int N = 100;
-        int[] arr = new int[N], testarr = new int[N];
-        Random rand = new Random();
-
-        for (int i = 0; i < 100000; i++) {
-            for (int j = 0; j < N; j++) {
-                arr[j] = rand.nextInt(100);
-                testarr[j] = arr[j];
-            }
-
-            Arrays.sort(testarr);
-            quickSort(arr, 0, N - 1);
-
-            for (int j = 0; j < N; j++) {
-                if (arr[j] != testarr[j]) {
-                    System.out.println("Arrays.sort:");
-                    for (int k = 0; k < N; k++)
-                        System.out.print(testarr[k] + " ");
-
-                    System.out.println();
-
-                    System.out.println("QuickSort:");
-                    for (int k = 0; k < N; k++)
-                        System.out.print(arr[k] + " ");
-
-                    System.out.println();
-
-                    System.out.println("QuickSort Wrong!");
-
-                    return;
-                }
-            }
-        }
-
-        System.out.println("QuickSort Right!");
     }
 }
