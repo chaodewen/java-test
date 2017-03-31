@@ -1,14 +1,10 @@
-package alibaba.internship;
+package internship.alibaba.quiz;
 
 /**
  * Created by Cc on 2017/3/2.
  */
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 public class Main {
     /** 请完成下面这个函数，实现题目要求的功能 **/
