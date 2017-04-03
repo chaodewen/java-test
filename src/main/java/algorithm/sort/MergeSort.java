@@ -27,7 +27,9 @@ public class MergeSort {
     // 归并排序算法比较占用内存，但却是效率高且稳定的排序算法
     // 最好、最坏和平均时间复杂度都是O(NlogN)
     public static void mergeSort(int[] from, int[] to, int start, int end) {
-        if(start == end)
+        if(start >= from.length)
+            return;
+        else if(start == end)
             to[start] = from[start];
         else {
             int mid = (end - start) / 2 + start;
