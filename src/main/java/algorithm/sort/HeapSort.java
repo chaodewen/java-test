@@ -1,7 +1,5 @@
 package algorithm.sort;
 
-import java.util.ArrayList;
-
 /**
  * Created by Cc on 2017/3/31.
  */
@@ -26,7 +24,7 @@ public class HeapSort {
         }
     }
     // 建立大根堆,思想是:
-    // 自底向上从第一个非叶子节点起逐个调整i、left和right的三角关系
+    // 自底向上从最后一个非叶子节点起逐个调整i、left和right的三角关系
     private static void buildMaxHeap(int[] heap, int heapSize) {
         for(int i = (heapSize - 1) / 2; i >= 0; i --)
             maxHeapify(heap, heapSize, i);
