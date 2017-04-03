@@ -1,8 +1,5 @@
 package algorithm.sort;
 
-import java.util.Arrays;
-import java.util.Random;
-
 /**
  * Created by Cc on 2017/3/29.
  */
