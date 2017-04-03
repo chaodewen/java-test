@@ -33,7 +33,6 @@ public class QuickSort {
             quickSort(arr, i + 1, right);
         }
     }
-
     private static void swap(int arr[], int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];

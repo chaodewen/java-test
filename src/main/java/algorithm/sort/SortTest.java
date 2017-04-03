@@ -8,21 +8,22 @@ import java.util.Random;
  */
 
 public class SortTest {
-    private static int[] getHeapSorted(int[] arr) {
-        int[] testArr = new int[arr.length];
+    private static int[] getMergeSorted(int[] arr) {
+        int[] testArr = arr.clone(), targetArr = new int[arr.length];
 
-        for(int i = 0; i < arr.length; i ++)
-            testArr = arr;
+        MergeSort.mergeSort(testArr, targetArr, 0, arr.length - 1);
+
+        return testArr;
+    }
+    private static int[] getHeapSorted(int[] arr) {
+        int[] testArr = arr.clone();
 
         HeapSort.heapSort(testArr, arr.length);
 
         return testArr;
     }
     private static int[] getQuickSorted(int[] arr) {
-        int[] testArr = new int[arr.length];
-
-        for(int i = 0; i < arr.length; i ++)
-            testArr = arr;
+        int[] testArr = arr.clone();
 
         QuickSort.quickSort(testArr, 0, arr.length - 1);
 
@@ -40,8 +41,9 @@ public class SortTest {
 
             Arrays.sort(arr);
 
-            int[] testArr = getQuickSorted(arr);
+//            int[] testArr = getQuickSorted(arr);
 //            int[] testArr = getHeapSorted(arr);
+            int[] testArr = getMergeSorted(arr);
 
             for (int j = 0; j < N; j++) {
                 if (arr[j] != testArr[j]) {
