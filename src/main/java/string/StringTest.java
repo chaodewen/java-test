@@ -8,5 +8,6 @@ public class StringTest {
 		String str = "test";
 		str.equalsIgnoreCase("TEst");
 		str.contains(".");
+		System.out.println("abc".compareTo("cde"));
 	}
 }

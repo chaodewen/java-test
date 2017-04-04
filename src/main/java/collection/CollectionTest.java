@@ -1,17 +1,6 @@
 package collection;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Set;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 
 @SuppressWarnings("unused")
 public class CollectionTest {
@@ -67,5 +56,30 @@ public class CollectionTest {
 		System.out.println(tree.get(2));
 		System.out.println(tree.lowerKey(2));
 		System.out.println(tree.higherKey(2));
+	}
+	private static void testArrays() {
+		int[] nums = new int[] { 3, 31, 4, 312 };
+		Integer[] newNums = new Integer[nums.length];
+
+		for(int i = 0; i < nums.length; i ++)
+			newNums[i] = nums[i];
+
+		Arrays.sort(newNums, new Comparator<Integer>() {
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				String str1 = String.valueOf(o1), str2 = String.valueOf(o2);
+				return (str1 + str2).compareTo(str2 + str1);
+			}
+        });
+
+		StringBuilder ans = new StringBuilder();
+
+		for(Integer i : newNums)
+			ans.append(i);
+
+		while(ans.length() > 0 && ans.charAt(0) == '0')
+			ans.deleteCharAt(0);
+
+		System.out.println(ans.toString());
 	}
 }
