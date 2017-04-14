@@ -31,7 +31,9 @@ public class CollectionTest {
 		List<Integer> list = new LinkedList<>();
 		list.add(1);
 		queue.addAll(list);
-		Queue<Integer> q = new PriorityQueue<>();
+		Queue<Integer> q = new PriorityQueue<>((o1, o2) -> o2 - o1);
+		q.offer(1);
+		q.poll();
 	}
 	private static void testMap() {
 		IdentityHashMap<String, String> map = new IdentityHashMap<>();

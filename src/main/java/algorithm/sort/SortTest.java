@@ -31,7 +31,7 @@ public class SortTest {
     }
     public static void main(String[] args) {
         // 检查排序函数正确性
-        int N = 100;
+        int N = 101;
         int[] arr = new int[N];
         Random rand = new Random();
 
@@ -42,8 +42,8 @@ public class SortTest {
             Arrays.sort(arr);
 
 //            int[] testArr = getQuickSorted(arr);
-//            int[] testArr = getHeapSorted(arr);
-            int[] testArr = getMergeSorted(arr);
+            int[] testArr = getHeapSorted(arr);
+//            int[] testArr = getMergeSorted(arr);
 
             for (int j = 0; j < N; j++) {
                 if (arr[j] != testArr[j]) {
