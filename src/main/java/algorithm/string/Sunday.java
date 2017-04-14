@@ -4,6 +4,12 @@ package algorithm.string;
  * Created by Cc on 2017/4/15.
  */
 
+/**
+ * i指txt,j指pat
+ * 匹配失败时考虑i+pat.length()字符在pat中有没有出现
+ * 没出现考虑再下一个字符
+ * 出现则找到最后一个出现位置,然后对齐这个位置到该字符,尝试匹配
+ */
 public class Sunday {
     public static int sundaySearch(String txt, String pat) {
         int txtLength = txt.length(), patLength = pat.length();
