@@ -25,17 +25,16 @@ public class HeapSort {
     }
     // 建立大根堆,思想是:
     // 自底向上从最后一个非叶子节点起逐个调整i、left和right的三角关系
-    private static void buildMaxHeap(int[] heap, int heapSize) {
-        for(int i = (heapSize - 2) / 2; i >= 0; i --)
-            maxHeapify(heap, heapSize, i);
+    private static void buildMaxHeap(int[] nums) {
+        for(int i = (nums.length - 2) / 2; i >= 0; i --)
+            maxHeapify(nums, nums.length, i);
     }
     // 大根堆并不是最终结果
-    public static void heapSort(int[] heap, int heapSize) {
-        buildMaxHeap(heap, heapSize);
-        for(int i = heapSize - 1; i > 0; i --) {
-            swap(heap, 0, i); // 根顶最大元素跟数组最后一个元素换
-            heapSize --;
-            maxHeapify(heap, heapSize, 0); // 从根节点开始调整三角关系
+    public static void heapSort(int[] nums) {
+        buildMaxHeap(nums);
+        for(int i = nums.length - 1; i > 0; i --) {
+            swap(nums, 0, i); // 根顶最大元素跟数组最后一个元素换
+            maxHeapify(nums, i, 0); // 从根节点开始调整三角关系
         }
     }
     private static void swap(int[] heap, int i, int j) {
@@ -46,7 +45,7 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] arr = new int[] { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
 
-        heapSort(arr, arr.length);
+        heapSort(arr);
 //        maxHeapify(arr, arr.length, 0);
 //        buildMaxHeap(arr, arr.length);
 

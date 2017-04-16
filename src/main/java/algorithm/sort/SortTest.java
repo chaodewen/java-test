@@ -19,7 +19,7 @@ public class SortTest {
     private static int[] getHeapSorted(int[] arr) {
         int[] testArr = Arrays.copyOf(arr, arr.length);
 
-        HeapSort.heapSort(testArr, arr.length);
+        HeapSort.heapSort(testArr);
 
         return testArr;
     }
