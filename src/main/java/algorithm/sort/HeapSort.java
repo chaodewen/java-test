@@ -9,18 +9,18 @@ public class HeapSort {
     // 方法对root、left和right的三角关系进行调整
     // 这三个节点大小关系没问题时返回(不对更下层的节点进行调整)
     // 有问题时会一直调整到叶子
-    private static void maxHeapify(int[] heap, int heapSize, int root) {
+    private static void maxHeapify(int[] nums, int heapSize, int root) {
         int left = 2 * root + 1, right = root * 2 + 2, larger = root;
 
-        if(left < heapSize && heap[left] > heap[root])
+        if(left < heapSize && nums[left] > nums[root])
             larger = left;
 
-        if(right < heapSize && heap[right] > heap[larger])
+        if(right < heapSize && nums[right] > nums[larger])
             larger = right;
 
         if(larger != root) {
-            swap(heap, larger, root);
-            maxHeapify(heap, heapSize, larger);
+            swap(nums, larger, root);
+            maxHeapify(nums, heapSize, larger);
         }
     }
     // 建立大根堆,思想是:
