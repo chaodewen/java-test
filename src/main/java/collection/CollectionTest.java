@@ -23,6 +23,7 @@ public class CollectionTest {
 	private static void testQueue() {
 		Queue<Integer> queue = new LinkedList<>();
 		queue.offer(1);
+		queue.peek();
 		queue.poll();
 		queue.isEmpty();
 		while(!queue.isEmpty()) {
@@ -32,6 +33,14 @@ public class CollectionTest {
 		list.add(1);
 		queue.addAll(list);
 		Queue<Integer> q = new PriorityQueue<>((o1, o2) -> o2 - o1);
+		PriorityQueue<Integer> smaller = new PriorityQueue<Integer>(
+				new Comparator<Integer>() {
+					@Override
+					public int compare(Integer i1, Integer i2) {
+						return i2 - i1;
+					}
+				})
+				, larger = new PriorityQueue<Integer>();
 		q.offer(1);
 		q.poll();
 	}
@@ -44,6 +53,8 @@ public class CollectionTest {
 	private static void testList() {
 		ArrayList<Integer> list = new ArrayList<>();
 		list.add(1);
+		list.set(0, 2);
+		list.remove(0);
 		list.toArray(new Integer[list.size()]);
 		LinkedList<Integer> ll = new LinkedList<>();
 	}

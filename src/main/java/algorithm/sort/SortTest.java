@@ -1,5 +1,6 @@
 package algorithm.sort;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -9,21 +10,21 @@ import java.util.Random;
 
 public class SortTest {
     private static int[] getMergeSorted(int[] arr) {
-        int[] testArr = arr.clone(), targetArr = new int[arr.length];
+        int[] testArr = Arrays.copyOf(arr, arr.length), targetArr = new int[arr.length];
 
         MergeSort.mergeSort(testArr, targetArr, 0, arr.length - 1);
 
         return testArr;
     }
     private static int[] getHeapSorted(int[] arr) {
-        int[] testArr = arr.clone();
+        int[] testArr = Arrays.copyOf(arr, arr.length);
 
         HeapSort.heapSort(testArr, arr.length);
 
         return testArr;
     }
     private static int[] getQuickSorted(int[] arr) {
-        int[] testArr = arr.clone();
+        int[] testArr = Arrays.copyOf(arr, arr.length);
 
         QuickSort.quickSort(testArr, 0, arr.length - 1);
 
@@ -37,7 +38,7 @@ public class SortTest {
 
         for (int i = 0; i < 100000; i++) {
             for (int j = 0; j < N; j++)
-                arr[j] = rand.nextInt(100);
+                arr[j] = rand.nextInt(1000);
 
             Arrays.sort(arr);
 
