@@ -60,6 +60,8 @@ public class CollectionTest {
 	}
 	private static void testStack() {
 		Stack<Integer> stack = new Stack<>();
+		stack.push(3);
+		stack.peek();
 	}
 	private static void testTreeMap() {
 		TreeMap<Integer, String> tree = new TreeMap<>();
