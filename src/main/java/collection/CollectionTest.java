@@ -57,6 +57,8 @@ public class CollectionTest {
 		list.remove(0);
 		list.toArray(new Integer[list.size()]);
 		LinkedList<Integer> ll = new LinkedList<>();
+		ll.addFirst(1);
+		ll.addLast(2);
 	}
 	private static void testStack() {
 		Stack<Integer> stack = new Stack<>();
