@@ -2,6 +2,8 @@ package internship.pdd.preparation;
 
 import Utils.TreeNode;
 
+import java.util.Stack;
+
 /**
  * Created by Cc on 2017/7/16.
  *
@@ -24,6 +26,28 @@ public class MirrorBinaryTree {
         return root;
     }
 
+    public TreeNode mirrorNonRecursively(TreeNode root) {
+        if(root == null)
+            return root;
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+
+        while(!stack.isEmpty()) {
+            TreeNode cur = stack.pop(), left = cur.left, right = cur.right;
+
+            cur.left = right;
+            cur.right = left;
+
+            if(left != null)
+                stack.push(left);
+            if(right != null)
+                stack.push(right);
+        }
+
+        return root;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(8);
         root.left = new TreeNode(6);
@@ -33,7 +57,8 @@ public class MirrorBinaryTree {
         root.right.left = new TreeNode(9);
 
         MirrorBinaryTree mirrorBinaryTree = new MirrorBinaryTree();
-        mirrorBinaryTree.mirror(root);
+//        mirrorBinaryTree.mirror(root);
+        mirrorBinaryTree.mirrorNonRecursively(root);
 
         System.out.println(root);
     }
