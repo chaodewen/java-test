@@ -81,12 +81,9 @@ public class CollectionTest {
 		for(int i = 0; i < nums.length; i ++)
 			newNums[i] = nums[i];
 
-		Arrays.sort(newNums, new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				String str1 = String.valueOf(o1), str2 = String.valueOf(o2);
-				return (str1 + str2).compareTo(str2 + str1);
-			}
+		Arrays.sort(newNums, (o1, o2) -> {
+            String str1 = String.valueOf(o1), str2 = String.valueOf(o2);
+            return (str1 + str2).compareTo(str2 + str1);
         });
 
 		StringBuilder ans = new StringBuilder();
@@ -98,5 +95,9 @@ public class CollectionTest {
 			ans.deleteCharAt(0);
 
 		System.out.println(ans.toString());
+
+		Arrays.stream(new String[] { "1", "2", "3" })
+				.mapToInt(Integer::parseInt)
+				.collect(ArrayList::new, List::add, List::addAll);
 	}
 }
