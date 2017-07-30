@@ -1,15 +1,15 @@
 package concurrent;
 
 public class RunnableTest implements Runnable {
-	private char text;
-	RunnableTest(char text) {
+	private String text;
+	RunnableTest(String text) {
 		this.text = text;
 	}
 	@Override
 	public void run() {
 		int num = 0;
-		for(int i = 0; i < 1000; i ++) {
-//			System.out.println(text + ":" + i);
+		for(int i = 0; i < 100; i ++) {
+			System.out.println(text + ":" + i);
 		}
 		System.out.println("num : " + ++ num);
 	}
@@ -23,8 +23,9 @@ public class RunnableTest implements Runnable {
 //		for(int i = 0; i < 3; i ++) {
 //			new Thread(new RunnableTest((char)('A' + i))).start();
 //		}
-		RunnableTest rt = new RunnableTest('t');
+
+		RunnableTest rt = new RunnableTest("t");
 		for(int i = 0; i < 3; i ++)
 			new Thread(rt).start();
-	}
+    }
 }
