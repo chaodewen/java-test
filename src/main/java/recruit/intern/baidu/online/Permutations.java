@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by Cc on 2017/4/27.
  */
 
-public class Permutation {
+public class Permutations {
     private static int ans;
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
