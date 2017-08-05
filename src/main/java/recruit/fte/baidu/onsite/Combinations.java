@@ -1,9 +1,24 @@
 package recruit.fte.baidu.onsite;
 
 /**
- * Created by Dewen on 2017/8/4.
+ * Created by Dewen on 2017/8/5.
+ *
+ * 数字的组合
  */
 public class Combinations {
+    /**
+     * 对所有长度的情况进行组合
+     *
+     * @param nums 输入数组
+     */
+    public void combineAllLen(int[] nums) {
+        // 循环处理每种长度
+        for (int len = 1; len <= nums.length; len++) {
+            int[] ans = new int[len];
+            combine(nums, ans, len, 0);
+        }
+    }
+
     /**
      * 输出长度为len的nums中数字的组合
      *
@@ -12,7 +27,7 @@ public class Combinations {
      * @param ans   当前正在生成的组合
      * @param start 选择数字的起始位置
      */
-    public void combine(int[] nums, int[] ans, int len, int start) {
+    private void combine(int[] nums, int[] ans, int len, int start) {
         // 结束递归
         if (len == 0) {
             print(ans);
@@ -22,9 +37,9 @@ public class Combinations {
         // 循环向当前位置放置数字
         for (int i = start; i <= nums.length - len; i++) {
             // start恰好是当前位置
-            ans[start] = nums[i];
+            ans[len - 1] = nums[i];
             // 递归向右边一个位置放入数字
-            combine(nums, ans, len - 1, start + 1);
+            combine(nums, ans, len - 1, i + 1);
         }
     }
 
@@ -38,17 +53,5 @@ public class Combinations {
             System.out.print(num);
 
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        Combinations combinations = new Combinations();
-
-        int[] nums = {1, 2};
-
-        // 循环处理每种长度
-        for (int len = 1; len <= nums.length; len++) {
-            int[] ans = new int[len];
-            combinations.combine(nums, ans, len, 0);
-        }
     }
 }

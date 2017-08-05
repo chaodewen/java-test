@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -65,6 +65,12 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.11</version>
 		</dependency>
+        <dependency>
+            <groupId>com.github.stefanbirkner</groupId>
+            <artifactId>system-rules</artifactId>
+            <version>1.16.0</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>
