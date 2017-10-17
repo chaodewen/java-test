@@ -206,7 +206,7 @@ public class LayoutTransformer {
         saveDocument(document, outputDir + "Annotations/" + cnt + ".xml");
     }
 
-    private static void copy(File source, File dest) throws Exception {
+    public static void copy(File source, File dest) throws Exception {
         FileChannel inputChannel = null;
         FileChannel outputChannel = null;
         try {
@@ -240,9 +240,9 @@ public class LayoutTransformer {
 
     public static void main(String[] args) {
         try {
-//            genOutput("/home/ccnt/chaoyang/chaodewen/data/whole/xray_xml_label/"
-//                    , "/home/ccnt/chaoyang/chaodewen/data/whole/xray_raw_data/"
-//                    , "/home/ccnt/chaoyang/chaodewen/data/whole/VOC_Chaoyang/labeled_data/");
+//            genOutput("/home/chaodewen/data/whole/xray_xml_label/"
+//                    , "/home/chaodewen/data/whole/xray_raw_data/"
+//                    , "/home/titan/chaodewen/data/whole/VOC_Chaoyang/labeled_data/");
 
             genOutput("/Users/Cc/Desktop/xray_xml_label/"
                     , "/Users/Cc/Desktop/xray_raw_data/"
